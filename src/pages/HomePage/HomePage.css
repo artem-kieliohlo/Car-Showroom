@@ -1,0 +1,35 @@
+.home-page__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+#home-title {
+  margin: 0 0 12px;
+}
+.btn {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 8px 10px;
+  background: #fff;
+  cursor: pointer;
+}
+.home-page__alert-wrap {
+  border: 1px solid #ef4444;
+  border-radius: 12px;
+  padding: 12px;
+  background: #fff;
+}
+
+.alert-wrap__pre {
+  margin: 0 0 8px;
+  padding: 10px;
+  background: #f3f4f6;
+  border-radius: 10;
+  overflow: auto;
+  font-size: 12px;
+}
+
+.alert-wrap__description {
+  margin: 0 0 8px;
+}

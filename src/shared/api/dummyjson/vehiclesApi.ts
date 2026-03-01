@@ -10,7 +10,7 @@ export const vehiclesApi = createApi({
   endpoints: (builder) => ({
     
     getVehiclesByCategory: builder.query<DummyCategoryResponse<DummyVehicle>, void>({
-      query: () => "/products/category/vehicle",
+      query: () => "/products/category/vehicle/dada",
       providesTags: (result) =>
         result
           ? [
