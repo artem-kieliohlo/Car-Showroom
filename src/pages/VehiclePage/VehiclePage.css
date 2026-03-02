@@ -1,0 +1,23 @@
+.vehicle-page__alert {
+  border: 1px solid #ef4444;
+  border-radius: 10px;
+  padding: 8px 10px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.vehicle-page__alert-bnt {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 12px;
+  background: #fff;
+}
+
+.vehicle-page__pre {
+  margin: 0 0 8px;
+  padding: 10;
+  background: #f3f4f6;
+  border-radius: 10px;
+  overflow: auto;
+  font-size: 12px;
+}
