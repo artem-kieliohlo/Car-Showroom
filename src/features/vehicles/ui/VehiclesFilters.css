@@ -1,0 +1,39 @@
+.filter-form {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr;
+  align-items: end;
+  margin: 0 0 14px;
+  padding: 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: #fff;
+}
+.filter-form__field {
+  display: grid;
+  gap: 6px;
+}
+.filter-form__label {
+  font-size: 12px;
+  opacity: 0.8;
+}
+.filter-form__input {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 8px 10px;
+  background: #fff;
+}
+.filter-form__resetBtn {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 8px 10px;
+  background: #fff;
+  cursor: pointer;
+  justify-self: start;
+}
+
+@media screen and (min-width: 720px) {
+  .filter-form {
+    grid-template-columns: 2fr 1fr auto;
+  }
+}
