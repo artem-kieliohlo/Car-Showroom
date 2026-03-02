@@ -4,7 +4,8 @@ import type { DummyReview } from "../../../shared/api/dummyjson/types";
 import type { LocalComment } from "../../../shared/types/comments";
 import { selectLocalCommentsByVehicleId } from "../../comments/selectors/commentsSelectors";
 import { CommentsList } from "../../comments/ui/CommentsList";
-import { store } from "../../../app/store/store";
+import { AddCommentForm } from "../../comments/ui/AddCommentForm";
+import "./VehicleReviewsSection.css";
 
 type Props = {
   vehicleId: number;
@@ -21,7 +22,6 @@ type ReviewViewItem = {
 };
 
 export function VehicleReviewsSection({ vehicleId, apiReviews }: Props) {
-  console.log(store.getState());
   const local = useAppSelector((s) =>
     selectLocalCommentsByVehicleId(s, vehicleId),
   );
@@ -41,10 +41,12 @@ export function VehicleReviewsSection({ vehicleId, apiReviews }: Props) {
       <header className="vehicle-reviews__header">
         <h2 className="vehicle-reviews__title">Reviews</h2>
         <p className="vehicle-reviews__hint">
-          API reviews are read-only. Your added comments will appear here after
-          you implement the form.
+          API reviews are read-only. Your comments are stored in localStorage
+          and persist after reload.
         </p>
       </header>
+
+      <AddCommentForm vehicleId={vehicleId} />
 
       <CommentsList items={items} />
     </section>
