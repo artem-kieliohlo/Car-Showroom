@@ -1,6 +1,6 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import type { LocalComment, StoredCommentsByVehicleId } from "../../shared/types/comments";
-import { loadStoredComments, saveStoredComments } from "../../shared/storage/commentsStorage";
+import { saveStoredComments } from "../../shared/storage/commentsStorage";
 
 type CommentsState = {
   byVehicleId: StoredCommentsByVehicleId;
@@ -19,9 +19,6 @@ const commentsSlice = createSlice({
   name: "comments",
   initialState,
   reducers: {
-    hydrateFromStorage(state) {
-      state.byVehicleId = loadStoredComments();
-    },
     addComment(state, action: PayloadAction<AddCommentPayload>) {
       const key = String(action.payload.vehicleId);
       const prev = state.byVehicleId[key] ?? [];
