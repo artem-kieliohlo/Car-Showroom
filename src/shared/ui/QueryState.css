@@ -1,0 +1,40 @@
+.query-state {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 12px;
+  background: #fff;
+}
+
+.query-state--error {
+  border-color: #ef4444;
+}
+
+.query-state__text {
+  margin: 0;
+}
+
+.query-state__text--muted {
+  opacity: 0.8;
+}
+
+.query-state__title {
+  margin: 0 0 8px;
+}
+
+.query-state__pre {
+  margin: 0;
+  padding: 10px;
+  background: #f3f4f6;
+  border-radius: 10px;
+  overflow: auto;
+  font-size: 12px;
+}
+
+.query-state__btn {
+  margin-top: 10px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 8px 10px;
+  background: #fff;
+  cursor: pointer;
+}

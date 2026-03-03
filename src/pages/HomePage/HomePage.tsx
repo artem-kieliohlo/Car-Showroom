@@ -5,6 +5,7 @@ import { VehiclesFilters } from "../../features/vehicles/ui/VehiclesFilters";
 import { useAppSelector } from "../../app/store/hooks";
 import { selectVehiclesFilters } from "../../features/vehicles/selectors/vehiclesSelectors";
 import type { DummyVehicle } from "../../shared/api/dummyjson/types";
+import { QueryState } from "../../shared/ui/QueryState";
 import "./HomePage.css";
 
 export function HomePage() {
@@ -18,6 +19,8 @@ export function HomePage() {
     return applyVehiclesFilters(vehicles, filters.query, filters.brand);
   }, [vehicles, filters.query, filters.brand]);
 
+  const isEmpty = !isLoading && !isError && filteredVehicles.length === 0;
+
   return (
     <section>
       <header className="home-page__header ">
@@ -29,27 +32,17 @@ export function HomePage() {
 
       {!isLoading && !isError && <VehiclesFilters vehicles={vehicles} />}
 
-      {isLoading && <p style={{ margin: 0 }}>Loading vehicles…</p>}
-
-      {isError && (
-        <div className="home-page__alert-wrap ">
-          <p className="alert-wrap__description">Failed to load vehicles.</p>
-
-          <pre className="alert-wrap__pre">{formatRtkQueryError(error)}</pre>
-
-          <button type="button" onClick={() => refetch()} className="btn">
-            Try again
-          </button>
-        </div>
-      )}
-
-      {!isLoading && !isError && filteredVehicles.length === 0 && (
-        <p style={{ margin: 0 }}>No vehicles match your filters.</p>
-      )}
-
-      {!isLoading && !isError && filteredVehicles.length > 0 && (
+      <QueryState
+        isLoading={isLoading}
+        isError={isError}
+        error={error}
+        isEmpty={isEmpty}
+        loadingText="Loading vehicles…"
+        emptyText="No vehicles match your filters."
+        onRetry={() => refetch()}
+      >
         <VehicleList vehicles={filteredVehicles} />
-      )}
+      </QueryState>
     </section>
   );
 }
@@ -70,23 +63,6 @@ function applyVehiclesFilters(
 
     const hay =
       `${v.title} ${v.brand} ${v.tags?.join(" ") ?? ""}`.toLowerCase();
-    const matchesQuery = hay.includes(q);
-
-    return matchesBrand && matchesQuery;
+    return matchesBrand && hay.includes(q);
   });
-}
-
-function formatRtkQueryError(err: unknown): string {
-  if (!err) return "Unknown error";
-  if (typeof err === "string") return err;
-
-  if (typeof err === "object") {
-    try {
-      return JSON.stringify(err, null, 2);
-    } catch {
-      return "Unserializable error object";
-    }
-  }
-
-  return String(err);
 }

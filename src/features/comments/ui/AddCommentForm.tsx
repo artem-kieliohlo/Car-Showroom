@@ -43,12 +43,15 @@ export function AddCommentForm({ vehicleId }: Props) {
     register,
     handleSubmit,
     reset,
+    watch,
     formState: { errors, isSubmitting, isValid },
   } = useForm<FormValues>({
     defaultValues,
     resolver: zodResolver(schema),
     mode: "onChange",
   });
+
+  const textValue = watch("text");
 
   const onSubmit = handleSubmit(async (values) => {
     dispatch(
@@ -74,6 +77,7 @@ export function AddCommentForm({ vehicleId }: Props) {
         <label className="add-comment-form__field">
           <span className="add-add-comment-form__label">Author</span>
           <input
+            autoFocus
             {...register("author")}
             maxLength={30}
             placeholder="Your name"
@@ -101,12 +105,20 @@ export function AddCommentForm({ vehicleId }: Props) {
               errors.text && "add-comment-form__control--invalid",
             )}
           />
-          {errors.text && (
-            <span className="add-comment-form__error">
+        </label>
+        <div className="add-comment-form__meta-row">
+          {errors.text ? (
+            <span className="add-comment-form__error ">
               {errors.text.message}
             </span>
+          ) : (
+            <span />
           )}
-        </label>
+        </div>
+
+        <span className="add-comment-form__counter">
+          {(textValue ?? "").length}/400
+        </span>
 
         <button
           type="submit"
