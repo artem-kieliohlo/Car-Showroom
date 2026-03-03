@@ -1,73 +1,145 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 🚗 Car Showroom
 
-Currently, two official plugins are available:
+A single-page application (SPA) of a virtual car showroom built with React.  
+Users can browse vehicles, filter them, open a specific vehicle page, and leave comments.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🔗 **Live demo:**  
+https://car-showroom-theta.vercel.app/
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+# 📦 Installation and Local Setup
 
-## Expanding the ESLint configuration
+## 1. Clone the repository
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone https://github.com/artem-kieliohlo/Car-Showroom.git
+cd Car-Showroom
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 2. Install dependencies
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
+
+## 3. Run in development mode
+
+```bash
+npm run dev
+```
+
+After starting the development server, the application will be available at:
+
+```
+http://localhost:5173
+```
+
+> If a different port is used, it will be shown in the terminal.
+
+## 4. Production build (optional)
+
+```bash
+npm run build
+npm run preview
+```
+
+---
+
+# 🧠 Tech Stack
+
+* **React**
+* **TypeScript**
+* **React Router**
+* **Redux Toolkit**
+* **RTK Query**
+* **React Hook Form**
+* **Zod**
+* **clsx**
+* CSS (component-based structure)
+
+---
+
+# ⚙️ Implemented Features
+
+## Home Page `/`
+
+* Fetching vehicle list via **RTK Query**
+* Search by title, brand, and tags
+* Filtering by brand
+* Handling query states:
+
+  * loading
+  * error
+  * empty state
+* Navigation to vehicle details page
+
+---
+
+## Vehicle Page `/vehicles/:vehicleId`
+
+* Fetching vehicle data by ID via RTK Query
+* Image gallery
+* Detailed vehicle information
+* 404 handling (Vehicle not found)
+* Request error handling
+
+---
+
+## Comments
+
+* Displaying reviews from API
+* Adding user comments
+* Form validation using **React Hook Form + Zod**
+* Persisting comments in **localStorage**
+* Automatic comment restoration on page reload (hydration via `preloadedState`)
+
+---
+
+# 🗂 Project Structure
+
+```
+src/
+ ├── app/
+ │   ├── layouts/
+ │   └── store/
+ │
+ ├── features/
+ │   ├── vehicles/
+ │   └── comments/
+ │
+ ├── shared/
+ │   ├── api/
+ │   ├── storage/
+ │   ├── ui/
+ │   └── utils/
+ │
+ ├── pages/
+ │   ├── HomePage/
+ │   └── VehiclePage/
+```
+
+### Architectural Principles
+
+* Feature-based project structure
+* RTK Query for API communication
+* Redux slice for UI state (filters) and local comments
+* Shared utilities and UI components placed under `shared`
+* Comment state hydration implemented via `preloadedState`
+
+---
+
+# 🧩 Implementation Highlights
+
+* Unified query state handler component (`QueryState`)
+* Separation of API reviews and local comments with merge on presentation layer
+* Strict API response typing
+* Minimal and responsive UI without external UI frameworks
+
+---
+
+# 🚀 Deployment
+
+The application is deployed on **Vercel**.
+Production build is generated automatically during deployment.
