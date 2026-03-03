@@ -28,7 +28,7 @@ export function VehicleCard({ vehicle }: Props) {
 
           <div className="card__meta">
             <span>
-              <strong>${vehicle.price}</strong>
+              <strong>${vehicle.price.toLocaleString()}</strong>
             </span>
             <span>Rating: {vehicle.rating}</span>
             <span>Stock: {vehicle.stock}</span>

@@ -77,7 +77,6 @@ export function AddCommentForm({ vehicleId }: Props) {
         <label className="add-comment-form__field">
           <span className="add-add-comment-form__label">Author</span>
           <input
-            autoFocus
             {...register("author")}
             maxLength={30}
             placeholder="Your name"

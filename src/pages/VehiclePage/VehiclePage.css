@@ -1,3 +1,10 @@
+.vehicle-page__back-link {
+  font-size: 16px;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  color: inherit;
+  opacity: 0.6;
+}
 .vehicle-page__alert {
   border: 1px solid #ef4444;
   border-radius: 10px;

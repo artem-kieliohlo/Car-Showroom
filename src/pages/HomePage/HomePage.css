@@ -3,6 +3,8 @@
   justify-content: space-between;
   gap: 12px;
   flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 20px;
 }
 #home-title {
   margin: 0 0 12px;
@@ -10,7 +12,7 @@
 .btn {
   border: 1px solid #e5e7eb;
   border-radius: 10px;
-  padding: 8px 10px;
+  padding: 10px;
   background: #fff;
   cursor: pointer;
 }
@@ -32,4 +34,9 @@
 
 .alert-wrap__description {
   margin: 0 0 8px;
+}
+.layout__outlet {
+  border-radius: 1%;
+  padding: 3%;
+  background-color: #f3f4f6;
 }

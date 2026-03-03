@@ -17,7 +17,7 @@ export function VehiclePage() {
 
   return (
     <section style={{ display: "grid", gap: 12 }}>
-      <Link to="/">← Back to vehicles</Link>
+      <Link to="/" className="vehicle-page__back-link"> &#9668; Back to vehicles</Link>
 
       {!isValidId && (
         <div className="vehicle-page__alert">Invalid vehicle id.</div>

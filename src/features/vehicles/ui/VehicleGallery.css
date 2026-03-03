@@ -1,11 +1,11 @@
-.vehicle-gallery{
+.vehicle-gallery {
   display: grid;
   gap: 10px;
 }
 .vehicle-gallery__main {
   width: 100%;
   aspect-ratio: 16/10;
-  background: #f3f4f6;
+  background: #ffffff;
   border: 1px solid #e5e7eb;
   border-radius: 12px;
   overflow: hidden;
@@ -18,11 +18,12 @@
 }
 .vehicle-gallery__thumbs {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
   /* overflow-x: auto; */
   padding-bottom: 4px;
 }
-.vehicle-gallery__thumb-button{
+.vehicle-gallery__thumb-button {
   border: 1px solid #e5e7eb;
   border-radius: 10px;
   padding: 0;

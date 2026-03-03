@@ -3,6 +3,13 @@
   border-radius: 12px;
   overflow: hidden;
   background: #fff;
+  box-shadow: 0 4px 8px #1f20241a;
+}
+.card:hover {
+  box-shadow: 0 16px 16px #1f20241a;
+  transition:
+    box-shadow,
+    0.2s ease;
 }
 .card__link {
   display: block;
@@ -13,7 +20,8 @@
 .card__media {
   width: 100%;
   aspect-ratio: 16/10;
-  background: #f3f4f6;
+  background: hwb(210 98% 2%);
+  border-bottom: 1px dotted rgba(102, 99, 99, 0.452);
 }
 .card__thumb {
   width: 100%;

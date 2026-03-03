@@ -15,11 +15,11 @@
   margin: 0;
   opacity: 0.85;
 }
-.vehicle-details__layout{
+.vehicle-details__layout {
   display: grid;
   gap: 14px;
   grid-template-columns: 1fr;
-  align-items: start;
+  align-items: stretch;
 }
 .vehicle-details__panel {
   border: 1px solid #e5e7eb;

@@ -24,7 +24,7 @@ export function VehicleDetails({ vehicle }: Props) {
             <div className="vehicle-details__spec">
               <dt className="vehicle-details__spec-term">Price</dt>
               <dd className="vehicle-details__muted--soft-term">
-                <strong>${vehicle.price}</strong>
+                <strong>${vehicle.price.toLocaleString()}</strong>
                 {vehicle.discountPercentage ? (
                   <span> (discount {vehicle.discountPercentage}%)</span>
                 ) : null}

@@ -1,29 +1,45 @@
-header {
+.layout {
+  /* если позже понадобится общий фон/минимальная высота — место здесь */
+}
+
+.layout__header {
   border-bottom: 1px solid #e5e7eb;
   padding: 12px 0;
+  background-color: #f3f4f6;
 }
-.container {
+
+.layout__container {
   width: 100%;
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 16px;
   box-sizing: border-box;
 }
-.brand {
-  font-weight: 700;
-  text-decoration: none;
-  color: inherit;
+
+@media (min-width: 1440px){
+  .layout__container {
+ max-width: 1300px;
+  }
 }
-nav {
+
+.layout__nav {
   display: flex;
   gap: 12px;
   align-items: center;
 }
-.navLink {
+
+.layout__brand {
+  font-weight: 700;
   text-decoration: none;
   color: inherit;
   opacity: 0.85;
 }
-main {
+
+.layout__brand--active {
+  opacity: 1;
+}
+
+.layout__main {
   padding: 16px 0;
+ 
 }
